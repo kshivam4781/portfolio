@@ -1,0 +1,130 @@
+{
+  "personalInfo": {
+    "name": "SHIVAM SINGH",
+    "location": "California, USA",
+    "email": "shivamssing96@gmail.com",
+    "phone": "+1 (350) 217 8666",
+    "linkedin": "linkedin.com/in/shivamsinghs/"
+  },
+  "education": [
+    {
+      "degree": "M.S. Computer Science",
+      "institution": "University of the Pacific",
+      "location": "Stockton, CA",
+      "gpa": "4.0/4.0",
+      "graduationDate": "May, 2025",
+      "type": "Graduate"
+    },
+    {
+      "degree": "B.E. Electronics and Telecommunication",
+      "institution": "Savitribai Phule Pune University",
+      "location": "Pune, India",
+      "gpa": "3.11/4.0 (US equivalent)",
+      "graduationDate": "January, 2019",
+      "type": "Undergraduate"
+    }
+  ],
+  "skills": {
+    "programmingLanguages": [
+      "ABAP", "C", "C++", "Python", "JavaScript", "Java", "SQL", 
+      "React.js", "Node.js", "Express.js", "SAP Fiori/UI5"
+    ],
+    "cloudInfrastructure": [
+      "AWS", "Azure Cloud", "SAP BTP", "Docker", "Kubernetes", "Terraform"
+    ],
+    "sapTechnologies": [
+      "SAP HANA", "SAP S/4HANA", "SAP Concur", "SAP PI/PO", "SAP SD/MM/FI",
+      "HR ABAP (Payroll, Time Management, Org. Management)", "OData", "SICF",
+      "Fiori Launchpad Designer"
+    ],
+    "database": [
+      "SQL", "SAP HANA", "Oracle"
+    ],
+    "aiMachineLearning": [
+      "NLP", "Computer Vision", "Data Mining", "Predictive Analytics",
+      "Tableau", "Power BI", "SAP HANA Analytics"
+    ],
+    "toolsCertifications": [
+      "ITIL Foundation", "SAP HANA 2.0 (SPS05)", "SAP ABAP", "Git", "Jenkins",
+      "Helm Charts", "Business Application Studio (BAS)", "SAP WebIDE",
+      "Tableau", "Power BI"
+    ]
+  },
+  "experience": [
+    {
+      "company": "Sky Transport Solutions",
+      "location": "California, US",
+      "position": "IT Consultant",
+      "duration": "April 2025 - Present",
+      "achievements": [
+        "Architected and implemented critical performance enhancements for a legacy .NET Framework (C#)-based custom CRM, reducing average SQL Server database query response times by 60% (from 500ms to 200ms) and increasing transaction throughput by 45% through strategic indexing, query optimization, connection pooling, and ORM (Entity Framework) tuning. Additionally, designed and automated CI/CD pipelines using Azure DevOps and PowerShell scripting, cutting release cycle times by 75% and improving deployment frequency.",
+        "Led full-stack development and deployment of a new, multi-tenant CRM platform for smog testing and CARB compliance, leveraging PHP (Laravel/Symfony), MySQL/PostgreSQL, JavaScript (React/Vue.js), and Python for data processing and reporting. The system currently supports over 1,200 active external smog testers and manages 18,390 active customer accounts, processing an average of 5,000+ daily transactions with sub-second response times, utilizing cron jobs for scheduled tasks and RESTful APIs for external integrations.",
+        "Designed, deployed, and configured a dedicated, high-capacity email server infrastructure using Postfix/Exim and Dovecot, capable of sending millions of emails per day, circumventing third-party limitations. Implemented robust deliverability protocols (SPF, DKIM, DMARC) and configured advanced queuing systems, SMTP relay, and IP reputation management to ensure 99.9% email uptime and optimal sender reputation.",
+        "Orchestrated the end-to-end setup and configuration of Microsoft Active Directory (AD DS) for a new branch office, establishing centralized identity and access management with Group Policy Objects (GPOs) and LDAP integration. Simultaneously designed and implemented a resilient Network Attached Storage (NAS) solution- Synology/QNAP with RAID configurations, comprehensive backup/disaster recovery strategies (achieving RTO of <4 hours, RPO of <1 hour) using Veeam/Commvault and cloud-based replication (Azure Blob/AWS S3). Implemented multi-layered security architectures including data encryption (AES-256), granular Access Control Lists (ACLs), network segmentation, and firewall rules to protect terabytes of critical business data."
+      ]
+    },
+    {
+      "company": "Tata Technologies Ltd",
+      "location": "Pune, India",
+      "position": "Consultant",
+      "duration": "April 2022 – August 2023",
+      "achievements": [
+        "Managed end-to-end data migration projects from legacy systems to SAP HANA, ensuring seamless integration with FI and HR modules. Optimized data interfaces using advanced ABAP techniques, ensuring high data integrity and compliance. Played a key role in SAP S/4HANA Brownfield implementations, handling HCM conversion activities like PY-YTDs, Org. Management master data, and evaluation paths.",
+        "Designed and maintained SAP solutions across SD/MM/FI and HR modules, focusing on custom ABAP development, integrations, and reporting. Provided technical consulting, enhancing system performance and functionality. Leveraged SAP PI/PO, API configurations, and web services, improving data transfer efficiency by 30%.",
+        "Utilized extensively worked on SAP Fiori and UI5, managing FLP version updates, Launchpad Designer, Fiori transactions, SICF activation, and OData service registration. Debugged and optimized custom UI5 applications, performed cache & buffer refresh, and customized SAP themes using SAP WebIDE and Business Application Studio (BAS)."
+      ]
+    },
+    {
+      "company": "Sure Trust",
+      "location": "Remote(Pune, India)",
+      "position": "Software Engineer",
+      "duration": "February 2022 – September 2022",
+      "achievements": [
+        "Designed and delivered a comprehensive curriculum for SAP ABAP, Fiori/UI5 (Web Development), and Python, covering core programming concepts, OData services, and UI5 application development.",
+        "Led three student batches (8, 11, and 19 students), providing hands-on coding sessions, debugging workshops, and real-world assignments, focused on full-stack web development and enterprise SAP integration.",
+        "Guided students through best practices in software development, performance optimization, and real-world SAP project implementation, equipping them with industry-relevant skills for SAP development and Python programming."
+      ]
+    },
+    {
+      "company": "Capgemini India Pvt. Ltd.",
+      "location": "Mumbai, India",
+      "position": "Software Engineer",
+      "duration": "February 2019 – April 2022",
+      "achievements": [
+        "Led integration projects, aligning SAP Concur's system with various client HR and Financial systems, including SAP HCM and non-SAP platforms. Used SAP Business Technology Platform (BTP) and ABAP to design efficient and scalable custom interfaces.",
+        "Advised clients on best practices for integrating SAP systems with external platforms, providing real-time troubleshooting during the implementation phases. Successfully managed the technical setup and configuration of SAP Concur for diverse customer needs.",
+        "Utilized SAP PI/PO for customized interface development, optimizing integration with external systems through API configurations and web service calls, which reduced client data transfer times by 30%. Implemented ODATA service enhancements and self-service functionalities, ensuring seamless integration and improved user experience within SAP HR modules."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "AIVision - Be My Eyes Web App",
+      "description": "Developed a simple 'Be My Eyes' web application with a llama.cpp/llava backend for computer vision assistance. This AI-powered tool helps visually impaired users by providing real-time image analysis and descriptions.",
+      "technologies": ["Python", "llama.cpp", "llava", "Computer Vision", "AI/ML", "Web Development"]
+    },
+    {
+      "title": "Sky Smog Check CRM",
+      "description": "Built a comprehensive CRM system for smog testing and CARB compliance management. The system handles customer accounts, test scheduling, compliance reporting, and integrates with regulatory databases.",
+      "technologies": ["PHP", "MySQL", "JavaScript", "CRM", "Regulatory Compliance", "Database Design"]
+    },
+    {
+      "title": "Bulk Email Sending Tool",
+      "description": "Created an efficient bulk email sending tool with advanced features for email marketing campaigns. Includes template management, recipient segmentation, delivery tracking, and analytics.",
+      "technologies": ["PHP", "SMTP", "Email Marketing", "Database", "Analytics"]
+    },
+    {
+      "title": "LeetCode Daily Practice",
+      "description": "Maintained a consistent daily coding practice repository with solutions to various algorithmic challenges. Demonstrates problem-solving skills and proficiency in multiple programming languages.",
+      "technologies": ["Python", "JavaScript", "Java", "C++", "Algorithms", "Data Structures"]
+    }
+  ],
+  "honorsAwards": [
+    "Certified in AWS, SAP ABAP, SAP HANA 2.0 (SPS05), and ITIL Foundation.",
+    "Published two research papers on live streaming recommendations and user roles in platform growth.",
+    "Founder & President, Sanatan Student Association & Senator of School of Engineering | University of the Pacific, CA",
+    "Dean's List (3 Semesters) – University of the Pacific, 2023 & 2024",
+    "Member of Honor Society Phi Kappa Phi - University of the Pacific Chapter.",
+    "Founder and core member of Student Developers Team, University of the Pacific"
+  ]
+} 
