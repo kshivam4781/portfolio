@@ -25,7 +25,7 @@ function App() {
     }, 2000)
 
     // Load resume data
-    fetch('/portfolio/resume.json')
+    fetch('/resume.json')
       .then(response => response.json())
       .then(data => setResumeData(data))
       .catch(error => console.error('Error loading resume data:', error))
