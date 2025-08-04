@@ -106,9 +106,9 @@ const Contact = ({ data }) => {
               <div className="relative">
                 <div className="w-32 h-32 rounded-full p-2 bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-green">
                   <div className="w-full h-full rounded-full overflow-hidden bg-cyber-dark">
-                    <img
-                      src="/assets/images/shivam.png"
-                      alt="Shivam Singh"
+                                    <img
+                  src="/portfolio/assets/images/shivam.png"
+                  alt="Shivam Singh"
                       className="w-full h-full object-cover"
                     />
                   </div>

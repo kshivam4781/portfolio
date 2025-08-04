@@ -80,9 +80,9 @@ const About = ({ data }) => {
             <div className="relative">
               <div className="w-64 h-64 rounded-full p-3 bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-green">
                 <div className="w-full h-full rounded-full overflow-hidden bg-cyber-dark">
-                  <img
-                    src="/assets/images/shivam.png"
-                    alt="Shivam Singh"
+                                  <img
+                  src="/portfolio/assets/images/shivam.png"
+                  alt="Shivam Singh"
                     className="w-full h-full object-cover"
                   />
                 </div>

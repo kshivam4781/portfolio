@@ -196,7 +196,7 @@ const Hero = ({ data }) => {
                 {/* Main Image */}
                 <div className="w-full h-full rounded-full overflow-hidden bg-cyber-dark">
                   <motion.img
-                    src="/assets/images/shivam.png"
+                    src="/portfolio/assets/images/shivam.png"
                     alt="Shivam Singh - Full Stack Developer"
                     className="w-full h-full object-cover"
                     initial={{ scale: 0.8, opacity: 0 }}
