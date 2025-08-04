@@ -45,7 +45,7 @@ const Hero = ({ data }) => {
   }
 
   return (
-    <main id="home" className="min-h-screen relative flex items-center justify-center overflow-hidden" role="main">
+    <section id="home" className="min-h-screen relative flex items-center justify-center overflow-hidden" role="main">
       {/* Background Grid */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0" style={{
