@@ -1,10 +1,10 @@
 const CACHE_NAME = 'shivam-singh-portfolio-v1'
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/assets/images/shivam.png',
-  '/src/index.css',
+  './',
+  './index.html',
+  './manifest.json',
+  './assets/images/shivam.png',
+  './src/index.css',
   'https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap'
 ]
 
