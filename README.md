@@ -65,22 +65,31 @@ The repository includes a GitHub Actions workflow that automatically deploys to 
 
 ### Troubleshooting GitHub Pages Issues
 
-If you encounter 404 errors on GitHub Pages:
+If you encounter deployment issues:
 
-1. **Check the base path**: Ensure `vite.config.js` has `base: './'`
-2. **Verify file paths**: All asset references should use relative paths (`./` instead of `/`)
-3. **Clear cache**: GitHub Pages may cache old versions - wait a few minutes or clear browser cache
-4. **Check branch**: Ensure GitHub Pages is set to deploy from the `gh-pages` branch
-5. **Rebuild and redeploy**:
+1. **Test build locally first**:
+   ```bash
+   npm run test-build
+   ```
+
+2. **Check GitHub Actions logs**:
+   - Go to your repository → Actions tab
+   - Click on the failed workflow
+   - Check the build logs for specific errors
+
+3. **Common issues and solutions**:
+   - **Git authentication error (128)**: Updated workflow uses proper permissions
+   - **404 errors for assets**: Base path is set to `/portfolio/` for GitHub Pages
+   - **Routing issues**: The `404.html` file handles SPA routing
+   - **Build failures**: Check for syntax errors and missing dependencies
+
+4. **Manual deployment**:
    ```bash
    npm run build
    npm run deploy
    ```
 
-Common issues and solutions:
-- **404 errors for assets**: Use relative paths in `index.html` and `manifest.json`
-- **Routing issues**: The `404.html` file handles SPA routing
-- **Build failures**: Check for syntax errors and missing dependencies
+5. **Clear cache**: GitHub Pages may cache old versions - wait a few minutes or clear browser cache
 
 ## 📁 Project Structure
 
