@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/portfolio/', // Use repository name for GitHub Pages
+  base: '/portfolio/',
   server: {
     port: 3000,
     open: true
@@ -13,7 +13,10 @@ export default defineConfig({
     assetsDir: 'assets',
     rollupOptions: {
       output: {
-        manualChunks: undefined
+        manualChunks: undefined,
+        assetFileNames: 'assets/[name].[hash].[ext]',
+        chunkFileNames: 'assets/[name].[hash].js',
+        entryFileNames: 'assets/[name].[hash].js'
       }
     }
   },

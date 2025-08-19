@@ -7,14 +7,12 @@ on:
     branches: [ main ]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-# Updated to use official GitHub Pages deployment actions
 permissions:
   contents: read
   pages: write
   id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -22,6 +20,9 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
     - name: Checkout
@@ -38,6 +39,8 @@ jobs:
       
     - name: Build
       run: npm run build
+      env:
+        NODE_ENV: production
       
     - name: Setup Pages
       uses: actions/configure-pages@v4
