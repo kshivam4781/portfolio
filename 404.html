@@ -3,28 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivam Singh - Portfolio</title>
-    <script type="text/javascript">
-        // Single Page Apps for GitHub Pages
-        // MIT License
-        // https://github.com/rafgraph/spa-github-pages
-        // This script takes the current url and converts the path and query
-        // string into just a query string, and then redirects the browser
-        // to the new url with only a query string and hash fragment.
-        var pathSegmentsToKeep = 1;
-
-        var l = window.location;
-        l.replace(
-            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-            l.hash
-        );
-    </script>
+    <title>Page Not Found - Shivam Singh Portfolio</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Return to Shivam Singh's portfolio - Full Stack Developer and SAP Consultant.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://shivamsingh.dev/404">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5VJKL932');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            color: #00d4ff;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        h2 {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            opacity: 0.8;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+        }
+        .glitch {
+            animation: glitch 2s infinite;
+        }
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+    </style>
 </head>
 <body>
-    <div id="root"></div>
-    <script type="module" src="/portfolio/src/main.jsx"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VJKL932"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div class="container">
+        <h1 class="glitch">404</h1>
+        <h2>Page Not Found</h2>
+        <p>Oops! The page you're looking for seems to have wandered off into the digital void.</p>
+        <p>Don't worry, you can always find your way back to my portfolio.</p>
+        <a href="/" class="btn">Return Home</a>
+        <a href="/#contact" class="btn">Contact Me</a>
+    </div>
+    
+    <script>
+        // Track 404 page view in GTM
+        window.dataLayer = window.dataLayer || []
+        window.dataLayer.push({
+            event: 'page_view',
+            page_title: 'Page Not Found - Shivam Singh Portfolio',
+            page_location: window.location.href,
+            page_path: '/404',
+            error_type: '404'
+        })
+        
+        // Redirect to home page after 10 seconds
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 10000);
+    </script>
 </body>
 </html>
