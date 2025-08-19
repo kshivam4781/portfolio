@@ -96,7 +96,7 @@ const SEOHead = ({
       <link rel="canonical" href={url} />
       
       {/* Preload critical resources */}
-      <link rel="preload" href="/assets/images/shivam.png" as="image" />
+      <link rel="preload" href="./assets/images/shivam.png" as="image" />
       <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" as="style" />
     </Helmet>
   )
