@@ -2,153 +2,207 @@ import { useEffect } from 'react'
 
 const GoogleAnalytics = () => {
   useEffect(() => {
-    // Google Analytics 4 initialization
-    const initGA = () => {
-      // Replace with your actual GA4 measurement ID
-      const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX' // Replace with your GA4 ID
-      
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('config', GA_MEASUREMENT_ID, {
-          page_title: document.title,
-          page_location: window.location.href,
-          custom_map: {
-            'custom_parameter_1': 'user_type',
-            'custom_parameter_2': 'page_section'
-          }
-        })
-      }
-    }
-
-    // Load Google Analytics script
-    const loadGA = () => {
-      const script = document.createElement('script')
-      script.async = true
-      script.src = `https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX` // Replace with your GA4 ID
-      document.head.appendChild(script)
-
-      window.dataLayer = window.dataLayer || []
-      window.gtag = function() {
-        window.dataLayer.push(arguments)
-      }
-      window.gtag('js', new Date())
-      
-      initGA()
-    }
-
-    // Track page views
-    const trackPageView = (url) => {
-      if (window.gtag) {
-        window.gtag('config', 'G-XXXXXXXXXX', { // Replace with your GA4 ID
-          page_path: url,
-          page_title: document.title
-        })
-      }
-    }
-
-    // Track custom events
-    const trackEvent = (action, category, label, value) => {
-      if (window.gtag) {
-        window.gtag('event', action, {
-          event_category: category,
-          event_label: label,
-          value: value
-        })
-      }
-    }
-
-    // Initialize GA
-    loadGA()
-
-    // Track navigation events
-    const handleNavigation = () => {
-      trackPageView(window.location.pathname)
-    }
-
-    // Track portfolio interactions
-    const trackPortfolioInteractions = () => {
-      // Track AI Assistant usage
-      const aiButton = document.querySelector('[data-ai-assistant]')
-      if (aiButton) {
-        aiButton.addEventListener('click', () => {
-          trackEvent('ai_assistant_opened', 'engagement', 'ai_chat', 1)
-        })
-      }
-
-      // Track project clicks
-      const projectLinks = document.querySelectorAll('[data-project-link]')
-      projectLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          const projectName = e.target.closest('[data-project-link]').dataset.projectName
-          trackEvent('project_viewed', 'engagement', projectName, 1)
-        })
+    // Google Tag Manager is already loaded in index.html
+    // This component now handles GTM-specific tracking and data layer pushes
+    
+    // Initialize dataLayer if it doesn't exist
+    window.dataLayer = window.dataLayer || []
+    
+    // Push initial page view to dataLayer
+    const pushPageView = () => {
+      window.dataLayer.push({
+        event: 'page_view',
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: window.location.pathname
       })
-
-      // Track contact form submissions
-      const contactForm = document.querySelector('[data-contact-form]')
-      if (contactForm) {
-        contactForm.addEventListener('submit', () => {
-          trackEvent('contact_form_submitted', 'conversion', 'contact', 1)
-        })
-      }
-
-      // Track skill section views
-      const skillsSection = document.querySelector('#skills')
-      if (skillsSection) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              trackEvent('skills_section_viewed', 'engagement', 'skills', 1)
-              observer.unobserve(entry.target)
-            }
-          })
-        })
-        observer.observe(skillsSection)
-      }
     }
 
-    // Track scroll depth
-    const trackScrollDepth = () => {
+    // Track custom events for GTM
+    const trackCustomEvents = () => {
+      // Track scroll depth
       let maxScroll = 0
       const trackScroll = () => {
         const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100)
         if (scrollPercent > maxScroll) {
           maxScroll = scrollPercent
-          if (maxScroll >= 25 && maxScroll < 50) {
-            trackEvent('scroll_depth_25', 'engagement', 'scroll', 25)
-          } else if (maxScroll >= 50 && maxScroll < 75) {
-            trackEvent('scroll_depth_50', 'engagement', 'scroll', 50)
-          } else if (maxScroll >= 75 && maxScroll < 100) {
-            trackEvent('scroll_depth_75', 'engagement', 'scroll', 75)
-          } else if (maxScroll >= 100) {
-            trackEvent('scroll_depth_100', 'engagement', 'scroll', 100)
+          if (maxScroll % 25 === 0) { // Track at 25%, 50%, 75%, 100%
+            window.dataLayer.push({
+              event: 'scroll_depth',
+              scroll_percentage: maxScroll,
+              page_title: document.title,
+              page_location: window.location.href
+            })
           }
         }
       }
       window.addEventListener('scroll', trackScroll, { passive: true })
-    }
 
-    // Track time on page
-    const trackTimeOnPage = () => {
+      // Track time on page
       let startTime = Date.now()
-      window.addEventListener('beforeunload', () => {
+      const trackTimeOnPage = () => {
         const timeSpent = Math.round((Date.now() - startTime) / 1000)
-        trackEvent('time_on_page', 'engagement', 'duration', timeSpent)
-      })
+        if (timeSpent % 30 === 0 && timeSpent > 0) { // Track every 30 seconds
+          window.dataLayer.push({
+            event: 'time_on_page',
+            time_spent_seconds: timeSpent,
+            page_title: document.title,
+            page_location: window.location.href
+          })
+        }
+      }
+      setInterval(trackTimeOnPage, 1000)
+
+      // Track section interactions
+      const trackSectionViews = () => {
+        const sections = ['#about', '#skills', '#experience', '#projects', '#contact']
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const sectionName = entry.target.id
+              window.dataLayer.push({
+                event: 'section_view',
+                section_name: sectionName,
+                page_title: document.title,
+                page_location: window.location.href
+              })
+            }
+          })
+        }, { threshold: 0.5 })
+
+        sections.forEach(sectionId => {
+          const element = document.querySelector(sectionId)
+          if (element) {
+            observer.observe(element)
+          }
+        })
+      }
+
+      // Track button clicks
+      const trackButtonClicks = () => {
+        const buttons = document.querySelectorAll('button, a[href^="#"], a[href^="mailto:"], a[href^="tel:"]')
+        buttons.forEach(button => {
+          button.addEventListener('click', (e) => {
+            const buttonText = button.textContent?.trim() || button.getAttribute('aria-label') || 'Unknown'
+            const buttonType = button.tagName.toLowerCase()
+            const href = button.getAttribute('href')
+            
+            window.dataLayer.push({
+              event: 'button_click',
+              button_text: buttonText,
+              button_type: buttonType,
+              button_href: href,
+              page_title: document.title,
+              page_location: window.location.href
+            })
+          })
+        })
+      }
+
+      // Track form interactions
+      const trackFormInteractions = () => {
+        const forms = document.querySelectorAll('form')
+        forms.forEach(form => {
+          // Track form start
+          const inputs = form.querySelectorAll('input, textarea, select')
+          inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+              window.dataLayer.push({
+                event: 'form_interaction',
+                form_name: form.getAttribute('name') || 'contact_form',
+                interaction_type: 'field_focus',
+                field_name: input.getAttribute('name') || input.getAttribute('id') || 'unknown',
+                page_title: document.title,
+                page_location: window.location.href
+              })
+            })
+          })
+
+          // Track form submission
+          form.addEventListener('submit', (e) => {
+            window.dataLayer.push({
+              event: 'form_submit',
+              form_name: form.getAttribute('name') || 'contact_form',
+              page_title: document.title,
+              page_location: window.location.href
+            })
+          })
+        })
+      }
+
+      // Track AI Assistant interactions
+      const trackAIAssistant = () => {
+        const aiButton = document.querySelector('[data-ai-assistant]')
+        if (aiButton) {
+          aiButton.addEventListener('click', () => {
+            window.dataLayer.push({
+              event: 'ai_assistant_opened',
+              page_title: document.title,
+              page_location: window.location.href
+            })
+          })
+        }
+      }
+
+      // Track project interactions
+      const trackProjectInteractions = () => {
+        const projectLinks = document.querySelectorAll('[data-project-link]')
+        projectLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            const projectName = e.target.closest('[data-project-link]').dataset.projectName
+            window.dataLayer.push({
+              event: 'project_viewed',
+              project_name: projectName,
+              page_title: document.title,
+              page_location: window.location.href
+            })
+          })
+        })
+      }
+
+      // Initialize tracking after DOM is ready
+      setTimeout(() => {
+        trackSectionViews()
+        trackButtonClicks()
+        trackFormInteractions()
+        trackAIAssistant()
+        trackProjectInteractions()
+      }, 1000)
     }
 
     // Initialize tracking
-    setTimeout(() => {
-      trackPortfolioInteractions()
-      trackScrollDepth()
-      trackTimeOnPage()
-    }, 1000)
+    pushPageView()
+    trackCustomEvents()
 
-    // Track navigation changes
-    window.addEventListener('popstate', handleNavigation)
+    // Track page views for SPA navigation
+    let currentPath = window.location.pathname
+    const trackPageView = () => {
+      const newPath = window.location.pathname
+      if (newPath !== currentPath) {
+        currentPath = newPath
+        window.dataLayer.push({
+          event: 'page_view',
+          page_title: document.title,
+          page_location: window.location.href,
+          page_path: newPath
+        })
+      }
+    }
 
+    // Listen for navigation changes
+    window.addEventListener('popstate', trackPageView)
+    
+    // Override pushState to track programmatic navigation
+    const originalPushState = history.pushState
+    history.pushState = function(...args) {
+      originalPushState.apply(history, args)
+      trackPageView()
+    }
+
+    // Cleanup function
     return () => {
-      // Cleanup
-      window.removeEventListener('popstate', handleNavigation)
+      // Remove event listeners if needed
+      window.removeEventListener('popstate', trackPageView)
     }
   }, [])
 
